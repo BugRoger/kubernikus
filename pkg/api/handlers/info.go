@@ -22,5 +22,3 @@ func (d *info) Handle(params operations.InfoParams) middleware.Responder {
 	}
 	return operations.NewInfoOK().WithPayload(info)
 }
-
-
