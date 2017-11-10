@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+
+metadata:
+  name: kubernikus-prometheus-collector
+  {{- if .Values.vice_president }}
+  annotations:
+    vice-president: "true"
+  {{- end}}
+
+spec:
+  tls:
+     - secretName: kubernikus-prometheus-collector
+       hosts: [kubernikus-prometheus-collector.{{.Values.global.region}}.{{.Values.global.domain}}]
+  rules:
+    - host: kubernikus-prometheus-collector.{{.Values.global.region}}.{{.Values.global.domain}}
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: kubernikus-prometheus-collector
+            servicePort: 9090

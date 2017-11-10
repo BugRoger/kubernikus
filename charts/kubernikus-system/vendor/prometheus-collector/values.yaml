@@ -1,0 +1,8 @@
+retention: 1h0m0s
+
+# automate certificate management using the VICE president (kubernetes operator)
+vice_president: true
+
+prometheus:
+  image: prom/prometheus
+  tag: v2.0.0

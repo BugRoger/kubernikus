@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubernikus-prometheus-collector
+
+data:
+  prometheus.yaml: |
+{{ include "prometheus-collector/templates/_prometheus.yaml.tpl" . | indent 4 }}
